@@ -9,6 +9,8 @@ from nltk.stem.porter import *
 from nltk.stem.snowball import SnowballStemmer
 from nltk.corpus import wordnet
 from nltk.stem import WordNetLemmatizer
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.cross_validation import train_test_split
 
 def status_to_words(raw_status,noun=False):
     # Function to convert a raw status to a string of words
@@ -61,27 +63,21 @@ def raw_cleaning(texts, noun):
         cleaned.append(status_to_words(raw_texts[i],noun))
     return pd.Series(cleaned)
 
-def bag_of_words(cleaned, method = 'count'):
-    if method == 'count':
-        vectorizer = CountVectorizer(analyzer = "word",   
+def get_grams(texts, noun):
+    raw_texts = list(texts)
+    cleaned = []
+    for i in range(len(raw_texts)):
+        cleaned.append(status_to_words(raw_texts[i],noun))
+    
+    vectorizer = CountVectorizer(analyzer = "word",   
                                      tokenizer = None,    
                                      preprocessor = None, 
                                      stop_words = None,   
-                                     max_features = 10000) 
-    else:
-        vectorizer = TfidfVectorizer(analyzer = "word") 
-   
-    data_features = vectorizer.fit_transform(clean_statuses)
-    data_features = data_features.toarray()
-    vocab = vectorizer.get_feature_names() 
-    # Sum up the counts of each vocabulary word
-    counts = np.sum(data_features, axis=0)
-    bag = pd.DataFrame()
-    bag['vocab'] = vocab
-    bag['counts'] = counts
-    return bag
+                                     max_features = 10000,
+                                     ngram_range = (1,2))
+    vectorizer.fit_transform(cleaned)
+    return vectorizer.get_feature_names()
 
-from sklearn.cross_validation import train_test_split
 
 def kfold_split(data, k):
     test_size = int(data.shape[0]/k)

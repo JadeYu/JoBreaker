@@ -58,77 +58,6 @@ def status_to_words(raw_status,noun=False):
     
     return(result)
 
-def bag_of_words(cleaned, method = 'count'):
-    if method == 'count':
-        vectorizer = CountVectorizer(analyzer = "word",   
-                                     tokenizer = None,    
-                                     preprocessor = None, 
-                                     stop_words = None,   
-                                     max_features = 10000) 
-    else:
-        vectorizer = TfidfVectorizer(analyzer = "word") 
-   
-    data_features = vectorizer.fit_transform(clean_statuses)
-    data_features = data_features.toarray()
-    vocab = vectorizer.get_feature_names() 
-    # Sum up the counts of each vocabulary word
-    counts = np.sum(data_features, axis=0)
-    bag = pd.DataFrame()
-    bag['vocab'] = vocab
-    bag['counts'] = counts
-    return bag
-
-from sklearn.cross_validation import train_test_split
-
-def kfold_split(data, k):
-    test_size = int(data.shape[0]/k)
-    train_size = data.shape[0] - test_size
-    data_train, data_test = train_test_split(data, train_size=train_size)
-    return data_train, data_test
-
-
-def raw_cleaning(raw_texts):
-    cleaned = []
-    nitem = raw_texts.shape[0]
-    for i in range(nitem):
-        cleaned.append(status_to_words(raw_texts[i],False))
-    return cleaned
-
-def get_feature(data, nfeature, method = 'count', thres = 0.95, noun=False):
-    """Calculate the text features for the given data.
-    text_var specifies the name of the column that contains the text.
-    nfeature specifies the max number of features to be extracted 
-    from the text."""
-
-    clean_statuses = []
-    nitem = data.shape[0]
-    for i in range(nitem):
-        clean_statuses.append(status_to_words(data['snippet'].iloc[i],noun))
-    if method == 'count':
-        vectorizer = CountVectorizer(analyzer = "word",   
-                                     tokenizer = None,    
-                                     preprocessor = None, 
-                                     stop_words = None,   
-                                     max_features = nfeature)
-    else:
-        vectorizer = TfidfVectorizer(analyzer = "word",   
-                                     tokenizer = None,    
-                                     preprocessor = None, 
-                                     stop_words = None,
-                                     max_df = thres,
-                                     min_df = 1-thres,
-                                     max_features = nfeature,
-                                    ngram_range = (1,3))
-    data_features = vectorizer.fit_transform(clean_statuses)
-    data_features = data_features.toarray()
-    vocab = vectorizer.get_feature_names() 
-    # Sum up the counts of each vocabulary word
-    # counts = np.sum(data_features, axis=0)
-    wf = data[['company','jobtitle','jobtitle_orig']]
-    for i in range(len(vocab)):
-        wf[vocab[i]] = data_features[:,i]
-    
-    return wf.iloc[:, 3:] 
 
 def text_feature(data, nfeature, method = 'count', thres = 0.95, noun=False):
     """Calculate the text features for the given data.
@@ -145,7 +74,8 @@ def text_feature(data, nfeature, method = 'count', thres = 0.95, noun=False):
                                      tokenizer = None,    
                                      preprocessor = None, 
                                      stop_words = None,   
-                                     max_features = nfeature)
+                                     max_features = nfeature,
+                                     ngram_range = (1,2))
     else:
         vectorizer = TfidfVectorizer(analyzer = "word",   
                                      tokenizer = None,    
@@ -153,7 +83,8 @@ def text_feature(data, nfeature, method = 'count', thres = 0.95, noun=False):
                                      stop_words = None,
                                      max_df = thres,
                                      min_df = 1-thres,
-                                     max_features = nfeature)
+                                     max_features = nfeature,
+                                     ngram_range = (1,2))
     data_features = vectorizer.fit_transform(clean_statuses)
     data_features = data_features.toarray()
     vocab = vectorizer.get_feature_names() 

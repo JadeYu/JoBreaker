@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import re
 import nltk
 from nltk.corpus import stopwords # Import the stop word list
+from sklearn.feature_extraction.text import CountVectorizer
 
 
 def status_to_words(raw_status,noun=False):
@@ -50,6 +51,21 @@ def raw_cleaning(texts, noun):
     for i in range(len(raw_texts)):
         cleaned.append(status_to_words(raw_texts[i],noun))
     return pd.Series(cleaned)
+
+def get_grams(texts, noun):
+    raw_texts = list(texts)
+    cleaned = []
+    for i in range(len(raw_texts)):
+        cleaned.append(status_to_words(raw_texts[i],noun))
+    
+    vectorizer = CountVectorizer(analyzer = "word",   
+                                     tokenizer = None,    
+                                     preprocessor = None, 
+                                     stop_words = None,   
+                                     max_features = 10000,
+                                     ngram_range = (1,2))
+    vectorizer.fit_transform(cleaned)
+    return vectorizer.get_feature_names()
 
 def contributing_words(cleaned_words, keywords):
     result = {}
