@@ -1,6 +1,6 @@
 import pandas as pd
 
-def get_one_entry(result, target):
+def get_one_entry(result, target, client):
     """
     Given the results for one job post,
     put them into one dictionary (corresponding to one entry if converted to data frame).
@@ -62,7 +62,7 @@ def API2csv(client, all_cities, title_list, title_abbr, path = '../../data/', ma
                     for j in range(len(search_response['results'])):
                         result = search_response['results'][j]
                         if title_filter(result['jobtitle'], target):
-                            table = table.append(pd.Series(get_one_entry(result, target), name = str(j)))
+                            table = table.append(pd.Series(get_one_entry(result, target, client), name = str(j)))
 
                     filepath = path+title_abbr[i]+'_'+city.split(",")[0]+'.csv'
                     table.to_csv(filepath)
