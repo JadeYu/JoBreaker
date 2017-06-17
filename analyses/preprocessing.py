@@ -12,7 +12,7 @@ from nltk.stem import WordNetLemmatizer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.cross_validation import train_test_split
 
-def status_to_words(raw_status,noun=False):
+def status_to_words(raw_status,noun=False, titleoff = False):
     # Function to convert a raw status to a string of words
     # The input is a single string (a raw status update), and 
     # the output is a single string (a preprocessed status update)
@@ -28,7 +28,13 @@ def status_to_words(raw_status,noun=False):
     # 3. Convert to lower case, split into individual words
     words = letters_only.lower().split()                             
     #
-    # 4. In Python, searching a set is much faster than searching
+    # 4. Lemmatize word (e.g. to merge noun and pronoun)
+    #stemmer = PorterStemmer()
+    #stemmer = SnowballStemmer("english")
+    wnl = WordNetLemmatizer()
+    words = [wnl.lemmatize(word) for word in words]
+    
+    # In Python, searching a set is much faster than searching
     #   a list, so convert the stop words to a set
     stops = set(stopwords.words("english"))
     #Remove a few more trivial words not identified by NLTK
@@ -36,13 +42,15 @@ def status_to_words(raw_status,noun=False):
                          u'im',u'doesn',u'couldn',u'won',u'isn',u'http',
                            u'www',u'like',u'one',u'would',u'get',u'want',
                          u'really',u'could',u'even',u'much',u'make',u'good']) 
+    if titleoff:
+        stops = stops.union([u'data',u'analyst',u'analysis',u'analytics',u'science',u'scientist',
+                         u'engineer',u'engineering',u'architect',u'architecture',u'product',
+                         u'manage',u'management',u'manager',u'business',u'database',u'administration',
+                        u'administrator',u'dba'])
     # 
     # 5. Remove stop words
     meaningful_words = [w for w in words if not w in stops]
-    #stemmer = PorterStemmer()
-    #stemmer = SnowballStemmer("english")
-    wnl = WordNetLemmatizer()
-    meaningful_words = [wnl.lemmatize(word) for word in meaningful_words]
+    
     
     result = " ".join(meaningful_words)
     
@@ -56,11 +64,11 @@ def status_to_words(raw_status,noun=False):
     
     return(result)
 
-def raw_cleaning(texts, noun):
+def raw_cleaning(texts, noun, titleoff=False):
     raw_texts = list(texts)
     cleaned = []
     for i in range(len(raw_texts)):
-        cleaned.append(status_to_words(raw_texts[i],noun))
+        cleaned.append(status_to_words(raw_texts[i],noun, titleoff))
     return pd.Series(cleaned)
 
 def get_grams(texts, noun):

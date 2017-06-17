@@ -39,18 +39,17 @@
 
     <div class="starter-template">
         <h2>Jobreaker</h2>
-        <p>Map your job description to a list of data-related job titles</p>
+        <p>Given any text description, JoBreaker returns a list of data-related job titles ranked by the probability of matching.</p>
     </div>
-    		<img src="static/background2.jpg"  style="width:20em;height:10em;">
     		
     <div class = "container">
 
       <form  action="/output" method="GET">
         <div class="form-group">
-          <label for="description">Enter your job description:</label>
-          <input type="text" id="description" name='description' placeholder="e.g. statistics and ML">
+          <label for="description">Enter your job description below:</label>
         </div>
-
+		<textarea name="description" cols="40" rows="5"></textarea>
+		
         <div>
           <button type="submit" class="btn btn-default btn-lg">Get result</button>
         </div>

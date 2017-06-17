@@ -14,7 +14,7 @@ from nltk.stem.snowball import SnowballStemmer
 from nltk.corpus import wordnet
 from nltk.stem import WordNetLemmatizer
 
-def status_to_words(raw_status,noun=False):
+def status_to_words(raw_status,noun=False, titleoff = False):
     # Function to convert a raw status to a string of words
     # The input is a single string (a raw status update), and 
     # the output is a single string (a preprocessed status update)
@@ -30,7 +30,13 @@ def status_to_words(raw_status,noun=False):
     # 3. Convert to lower case, split into individual words
     words = letters_only.lower().split()                             
     #
-    # 4. In Python, searching a set is much faster than searching
+    # 4. Lemmatize word (e.g. to merge noun and pronoun)
+    #stemmer = PorterStemmer()
+    #stemmer = SnowballStemmer("english")
+    wnl = WordNetLemmatizer()
+    words = [wnl.lemmatize(word) for word in words]
+    
+    # In Python, searching a set is much faster than searching
     #   a list, so convert the stop words to a set
     stops = set(stopwords.words("english"))
     #Remove a few more trivial words not identified by NLTK
@@ -38,13 +44,15 @@ def status_to_words(raw_status,noun=False):
                          u'im',u'doesn',u'couldn',u'won',u'isn',u'http',
                            u'www',u'like',u'one',u'would',u'get',u'want',
                          u'really',u'could',u'even',u'much',u'make',u'good']) 
+    if titleoff:
+        stops = stops.union([u'data',u'analyst',u'analysis',u'analytics',u'science',u'scientist',
+                         u'engineer',u'engineering',u'architect',u'architecture',u'product',
+                         u'manage',u'management',u'manager',u'business',u'database',u'administration',
+                        u'administrator',u'dba'])
     # 
     # 5. Remove stop words
     meaningful_words = [w for w in words if not w in stops]
-    #stemmer = PorterStemmer()
-    #stemmer = SnowballStemmer("english")
-    wnl = WordNetLemmatizer()
-    meaningful_words = [wnl.lemmatize(word) for word in meaningful_words]
+    
     
     result = " ".join(meaningful_words)
     
@@ -59,7 +67,7 @@ def status_to_words(raw_status,noun=False):
     return(result)
 
 
-def text_feature(data, nfeature, method = 'count', thres = 0.95, noun=False):
+def text_feature(data, nfeature, method = 'count', thres = 0.95, noun=False, titleoff=False):
     """Calculate the text features for the given data.
     text_var specifies the name of the column that contains the text.
     nfeature specifies the max number of features to be extracted 
@@ -68,8 +76,8 @@ def text_feature(data, nfeature, method = 'count', thres = 0.95, noun=False):
     clean_statuses = []
     nitem = data.shape[0]
     for i in range(nitem):
-        clean_statuses.append(status_to_words(data['snippet'].iloc[i],noun))
-    if method == 'count':
+        clean_statuses.append(status_to_words(data['snippet'].iloc[i],noun, titleoff))
+    if method == 'count' or method == 'conditional':
         vectorizer = CountVectorizer(analyzer = "word",   
                                      tokenizer = None,    
                                      preprocessor = None, 
@@ -88,9 +96,14 @@ def text_feature(data, nfeature, method = 'count', thres = 0.95, noun=False):
     data_features = vectorizer.fit_transform(clean_statuses)
     data_features = data_features.toarray()
     vocab = vectorizer.get_feature_names() 
-    # Sum up the counts of each vocabulary word
-    # counts = np.sum(data_features, axis=0)
     wf = data[['company','jobtitle','jobtitle_orig']]
+    if method == 'conditional':
+        #counts = np.sum(data_features, axis=0)
+        data_features = pd.DataFrame(data_features)
+        data_features = data_features.div(data_features.sum(axis=0), axis=1)
+        for i in range(len(vocab)):
+            wf[vocab[i]] = data_features.iloc[:,i]
+        return wf
     for i in range(len(vocab)):
         wf[vocab[i]] = data_features[:,i]
     
