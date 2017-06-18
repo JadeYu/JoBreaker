@@ -1,101 +1,1 @@
-,Data Scientist,Data Engineer,Business Analyst,Product Manager,Data Architect,Database Administrator,Data Analyst
-0,statistic,technology,requirement,strategy,design,design,reporting
-1,mathematics,pipeline,functional,market,implementation,implementation,report
-2,learning,processing,document,sale,service,procedure,ad
-3,machine learning,variety,user,marketing,tool,backup,reporting tool
-4,computer,stack,credit,plan,integration,maintenance,state
-5,machine,aws,process,develop,etl,aspect,including
-6,model,azure,specification,line,firm,physical,tool
-7,analytics,setting,case,pricing,strategy,system,develop
-8,statistical,accredited college,developing,team,availability,design implementation,federal
-9,master degree,computer computer,project,launch,year experience,server,deliverable
-10,quantitative,college university,time,customer,development,performance,field equivalent
-11,method,implement,within,new,experience,configuration,employee
-12,phd,mining,use case,content,year,testing,healthcare
-13,field,computer,work,team develop,bi,standard,applicant
-14,computer statistic,algorithm,end,life,warehouse,availability,office
-15,mathematics statistic,university,system,service,lead,storage,clinical
-16,master,accredited,position,developing,project,security,analytics
-17,operation research,college,risk,concept,modeling,hardware,field
-18,related,degree accredited,test,partner,team,performance tuning,degree
-19,applied,client,experience developing,experience developing,work,model,equivalent
-20,research,big,implementing,direct,intelligence,create,federal state
-21,advanced,test,interface,work,software,assist,related
-22,algorithm,computer related,definition,life cycle,documentation,installation,excel
-23,statistic computer,multiple,year,cycle,recovery,include,play
-24,related field,programming language,experience,research,technology,tuning,health
-25,operation,bachelor,plan,responsibility,related field,including,ensure
-26,minimum,field minimum,use,success,related,production,bachelor degree
-27,develop,related field,enterprise,identifying,solution,performs,limited
-28,experience,four year,development,development,acquisition,develop,related field
-29,statistic mathematics,four,technical,design,computer related,ability work,bachelor
-30,degree,language,end user,technical,develop,recovery,care
-31,analytic,degree,staff,broad,system,maintaining,communication
-32,physic,bachelor degree,current,present,implement,information,metric
-33,clinical,related,existing,create,computer,technical,document
-34,computational,year,translate,expected,strategic,general,hoc
-35,social medium,field,various,develop new,aspect,information technology,ad hoc
-36,social,programming,using,front,degree computer,integrity,key
-37,experience using,minimum,diagram,including,technical,development implementation,contractor
-38,personnel,experience,improvement,understanding,job,development,development
-39,tool,center,application,position,field,logical,analytical
-40,plus,two year,gather,overall,field develop,monitoring,technical
-41,mathematics computer,design,related,driving,hand,maintain,enterprise
-42,discipline,two,develop,demonstrated,marketing,work,providing
-43,decision,team,well,execute,microsoft,able,manner
-44,well,design build,performing,function,access,required,sql
-45,collaborate,hadoop,change,idea,design implementation,computer related,quality
-46,medium,year experience,technology,ability,methodology,structure,team
-47,quantitative field,build,leadership,competitive,work closely,must,workflow
-48,network,degree required,state,experience,technique,detailed,finance
-49,digital,installation,gathering,base,server,sql,compliance
-50,technical,life cycle,best,knowledge,recommendation,software,ongoing
-51,predictive,subject matter,department,deep,develop implement,implement,performing
-52,two year,development,high,focused,expertise,complex,preferred
-53,optimization,art,technique,story,closely,related,state federal
-54,conduct,matter,answer,tool,degree,expertise,planning
-55,responsible,troubleshooting,consistent,must,standard,application,ability
-56,also,cycle,senior,social,platform,tool,equivalent experience
-57,translate,hardware,strategy,platform,testing,complexity,using
-58,time,full,detailed,used,requirement,test,telephone
-59,two,prototype,expected,brand,post,integration,combination education
-60,financial,subject,solution,opportunity,position,enterprise,equivalent combination
-61,using,based,valid,department,principle,review,use
-62,technique,demonstrated,basis,communication,structured,related field,experience
-63,key,hand,implementation,perform,develops,plan,agency
-64,background,tool,appropriate,revenue,azure,certification,along
-65,strong,platform,question,feature,application,solution,knowledge
-66,year,part,equivalent,consumer,automation,team,insurance
-67,computer mathematics,expert,rule,leader,statistic related,problem,gender
-68,depth,life,liaison,execution,provide,perform,combination
-69,take,providing,need,needed,development implementation,modeling,general
-70,reporting tool,conduct,commercial,provide technical,physical,planning,status
-71,developing,intelligence,future state,expert,computer mathematics,utilizing,advanced
-72,action,information technology,determine,deliver,field year,cause,law
-73,degree statistic,design development,user story,trend,validation,skill,guidance
-74,successful,must,wide,roadmap,demonstrated,corporate,creative
-75,working,issue,field,field,setting,upgrade,medium
-76,disability,planning,enhancement,software,knowledge,deployment,education
-77,veteran,market,front,growth,specific,responsible,analytic
-78,deep,enterprise,approach,creation,ad,technology,work
-79,design,complex,meet,need,mathematics statistic,subject matter,approach
-80,people,use,owner,training,analytics,computer,recommendation
-81,enable,infrastructure,act,well,study,object,performance
-82,field minimum,required,goal,strategic,education,matter,focus
-83,relevant experience,ability,service,ongoing,bachelor degree,ability,program
-84,approach,service,workflow,working,requires,efficiency,people
-85,color,small,degree,analytics,highly,cost,field preferred
-86,meet,play,story,operation,including,action,analyze
-87,delivery,growing,infrastructure,responsible,part,day,etc
-88,year relevant,degree computer,metric,challenge,bachelor,implementation maintenance,best
-89,used,information,activity,support,review,script,strong
-90,related experience,solution,mining,lead,perform,subject,degree related
-91,visualization,feature,ability,fast,user,field,sale
-92,individual,delivery,deliverable,goal,individual,degree information,network
-93,modeling,improve,life cycle,impact,environment,equivalent work,information
-94,math,looking,bachelor degree,valid,preferred,design development,expertise
-95,accredited college,system,designing,growing,mathematics,ensure,access
-96,relationship,around,relevant,retail,model,call,process
-97,college university,framework,supporting,provide,ability,structured,platform
-98,group,member,cycle,history,statistic,within,research
-99,ability,organization,information,relationship,information,identify,microsoft
+,Data Scientist,Data Engineer,Business Analyst,Product Manager,Data Architect,Database Administrator,Data Analyst,,,0,statistic,technology,requirement,strategy,design,design,reporting,,,1,mathematics,pipeline,functional,market,implementation,implementation,report,,,2,learning,processing,document,sale,service,procedure,ad,,,3,machine learning,variety,user,marketing,tool,backup,reporting tool,,,Data Scientist4,computer,stack,credit,plan,integration,maintenance,state,,,Data Engineer5,machine,aws,process,develop,etl,aspect,including,,,Business Analyst6,model,azure,specification,line,firm,physical,tool,,,Product Manager7,analytics,setting,case,pricing,strategy,system,develop,,,Data Architect8,statistical,accredited college,developing,team,availability,design implementation,federal,,,Database Administrator9,master degree,computer computer,project,launch,year experience,server,deliverable,,,Data Analyst10,quantitative,college university,time,customer,development,performance,field equivalent,,,11,method,implement,within,new,experience,configuration,employee,,,12,phd,mining,use case,content,year,testing,healthcare,,,13,field,computer,work,team develop,bi,standard,applicant,,,14,computer statistic,algorithm,end,life,warehouse,availability,office,,,15,mathematics statistic,university,system,service,lead,storage,clinical,,,16,master,accredited,position,developing,project,security,analytics,,,17,operation research,college,risk,concept,modeling,hardware,field,,,18,related,degree accredited,test,partner,team,performance tuning,degree,,,19,applied,client,experience developing,experience developing,work,model,equivalent,,,20,research,big,implementing,direct,intelligence,create,federal state,,,21,advanced,test,interface,work,software,assist,related,,,22,algorithm,computer related,definition,life cycle,documentation,installation,excel,,,23,statistic computer,multiple,year,cycle,recovery,include,play,,,24,related field,programming language,experience,research,technology,tuning,health,,,25,operation,bachelor,plan,responsibility,related field,including,ensure,,,26,minimum,field minimum,use,success,related,production,bachelor degree,,,27,develop,related field,enterprise,identifying,solution,performs,limited,,,28,experience,four year,development,development,acquisition,develop,related field,,,29,statistic mathematics,four,technical,design,computer related,ability work,bachelor,,,30,degree,language,end user,technical,develop,recovery,care,,,31,analytic,degree,staff,broad,system,maintaining,communication,,,32,physic,bachelor degree,current,present,implement,information,metric,,,33,clinical,related,existing,create,computer,technical,document,,,34,computational,year,translate,expected,strategic,general,hoc,,,35,social medium,field,various,develop new,aspect,information technology,ad hoc,,,36,social,programming,using,front,degree computer,integrity,key,,,37,experience using,minimum,diagram,including,technical,development implementation,contractor,,,38,personnel,experience,improvement,understanding,job,development,development,,,39,tool,center,application,position,field,logical,analytical,,,40,plus,two year,gather,overall,field develop,monitoring,technical,,,41,mathematics computer,design,related,driving,hand,maintain,enterprise,,,42,discipline,two,develop,demonstrated,marketing,work,providing,,,43,decision,team,well,execute,microsoft,able,manner,,,44,well,design build,performing,function,access,required,sql,,,45,collaborate,hadoop,change,idea,design implementation,computer related,quality,,,46,medium,year experience,technology,ability,methodology,structure,team,,,47,quantitative field,build,leadership,competitive,work closely,must,workflow,,,48,network,degree required,state,experience,technique,detailed,finance,,,49,digital,installation,gathering,base,server,sql,compliance,,,50,technical,life cycle,best,knowledge,recommendation,software,ongoing,,,51,predictive,subject matter,department,deep,develop implement,implement,performing,,,52,two year,development,high,focused,expertise,complex,preferred,,,53,optimization,art,technique,story,closely,related,state federal,,,54,conduct,matter,answer,tool,degree,expertise,planning,,,55,responsible,troubleshooting,consistent,must,standard,application,ability,,,56,also,cycle,senior,social,platform,tool,equivalent experience,,,57,translate,hardware,strategy,platform,testing,complexity,using,,,58,time,full,detailed,used,requirement,test,telephone,,,59,two,prototype,expected,brand,post,integration,combination education,,,60,financial,subject,solution,opportunity,position,enterprise,equivalent combination,,,61,using,based,valid,department,principle,review,use,,,62,technique,demonstrated,basis,communication,structured,related field,experience,,,63,key,hand,implementation,perform,develops,plan,agency,,,64,background,tool,appropriate,revenue,azure,certification,along,,,65,strong,platform,question,feature,application,solution,knowledge,,,66,year,part,equivalent,consumer,automation,team,insurance,,,67,computer mathematics,expert,rule,leader,statistic related,problem,gender,,,68,depth,life,liaison,execution,provide,perform,combination,,,69,take,providing,need,needed,development implementation,modeling,general,,,70,reporting tool,conduct,commercial,provide technical,physical,planning,status,,,71,developing,intelligence,future state,expert,computer mathematics,utilizing,advanced,,,72,action,information technology,determine,deliver,field year,cause,law,,,73,degree statistic,design development,user story,trend,validation,skill,guidance,,,74,successful,must,wide,roadmap,demonstrated,corporate,creative,,,75,working,issue,field,field,setting,upgrade,medium,,,76,disability,planning,enhancement,software,knowledge,deployment,education,,,77,veteran,market,front,growth,specific,responsible,analytic,,,78,deep,enterprise,approach,creation,ad,technology,work,,,79,design,complex,meet,need,mathematics statistic,subject matter,approach,,,80,people,use,owner,training,analytics,computer,recommendation,,,81,enable,infrastructure,act,well,study,object,performance,,,82,field minimum,required,goal,strategic,education,matter,focus,,,83,relevant experience,ability,service,ongoing,bachelor degree,ability,program,,,84,approach,service,workflow,working,requires,efficiency,people,,,85,color,small,degree,analytics,highly,cost,field preferred,,,86,meet,play,story,operation,including,action,analyze,,,87,delivery,growing,infrastructure,responsible,part,day,etc,,,88,year relevant,degree computer,metric,challenge,bachelor,implementation maintenance,best,,,89,used,information,activity,support,review,script,strong,,,90,related experience,solution,mining,lead,perform,subject,degree related,,,91,visualization,feature,ability,fast,user,field,sale,,,92,individual,delivery,deliverable,goal,individual,degree information,network,,,93,modeling,improve,life cycle,impact,environment,equivalent work,information,,,94,math,looking,bachelor degree,valid,preferred,design development,expertise,,,95,accredited college,system,designing,growing,mathematics,ensure,access,,,96,relationship,around,relevant,retail,model,call,process,,,97,college university,framework,supporting,provide,ability,structured,platform,,,98,group,member,cycle,history,statistic,within,research,,,99,ability,organization,information,relationship,information,identify,microsoft,,,

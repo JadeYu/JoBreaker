@@ -1,0 +1,788 @@
+ggpairs(iris, columns=1:4)
+m1 = lm(Sepal.Length~Sepal.Width, data = iris)
+ggplot(m1, aes(x=.fitted, y = .resid)) +
+geom_line()
+ggplot(m1, aes(x=.fitted, y = .resid)) +
+geom_line() +
+geom_hline(yintercept = 0, linetype = 'dashed')
+ggplot(m1, aes(x=.fitted, y = .resid)) +
+geom_line() +
+geom_hline(yintercept = 0, linetype = 'dashed')+
+xlab("Fitted")+
+ylab("Residual")
+f = function(x,y,z){x + 2* y + 3* z}
+do.call(f, c(1,2,3))
+do.call(f, {1,2,3})
+do.call(f, list(1,2,3))
+list(2,3,4)
+?dir
+?write.csv
+write_random_tables <- function(nfile, names, ncol=2, nrow=3, path='./'){#
+	files <- sapply(names, function(n){paste(path, n, ".csv", sep="")})#
+	for i in 1:nfile {#
+		do.call(write.csv,list(random_table(ncol,nrow), files[i]))#
+	}#
+}#
+#
+random_table <- function(ncol, nrow){#
+	data.frame(matrix(rnorm(ncol*nrow), ncol=ncol))#
+}
+write_random_tables <- function(nfile, names, ncol=2, nrow=3, path='./'){#
+	files <- sapply(names, function(n){paste(path, n, ".csv", sep="")})#
+	for(i in 1:nfile){#
+		do.call(write.csv,list(random_table(ncol,nrow), files[i]))#
+	}#
+}#
+#
+random_table <- function(ncol, nrow){#
+	data.frame(matrix(rnorm(ncol*nrow), ncol=ncol))#
+}
+write_random_tables(3, c("a","b","c"), ncol=2, nrow=3, path='./')
+getwd()
+load_data <- function(path = '.') { #
+ files <- dir(path, pattern = '\\*.csv', full.names = TRUE)#
+ tables <- lapply(files, read.csv)#
+ do.call(rbind, tables)#
+}
+load_data()
+tables
+load_data <- function(path = '.') { #
+ files <- dir(path, pattern = '\\*.csv', full.names = TRUE)#
+ tables <- lapply(files, read.csv)#
+ do.call(rbind, tables)#
+ tables#
+}
+load_data()
+files <- dir(path, pattern = '\\*.csv', full.names = TRUE)
+path = '.'
+files <- dir(path, pattern = '\\*.csv', full.names = TRUE)
+files
+files <- dir(path, pattern = '*.csv', full.names = TRUE)
+files
+files <- dir(path, pattern = '\\*.csv', full.names = TRUE)
+files
+files <- dir(path, pattern = '\*.csv', full.names = TRUE)
+tables <- lapply(files, read.csv)
+files
+files <- dir(path, pattern = '*.csv', full.names = TRUE)
+tables <- lapply(files, read.csv)
+tables
+do.call(rbind, tables)
+load_data <- function(path = '.') { #
+ files <- dir(path, pattern = '*.csv', full.names = TRUE)#
+ tables <- lapply(files, read.csv)#
+ do.call(rbind, tables)#
+}
+load_data()
+?cut
+?split
+?knn
+library(class)
+?knn
+?anova
+?merge
+?AIC
+107.08+58.69
+125000/12/4/8
+125000/12/4/8/5
+100/13
+100/14
+library(shiny)#
+runGitHub("Tourest", "JadeYu")
+105000/12/4/5/8
+1296、2
+1296/2
+1396/2
+55*12*1.1
+55*12
+185+62+444
+691/12
+68+105+35+50+13
+160*4+35*4+60*4
+160*4+35*4+60*4+120*4
+15*5
+7*4*7
+setwd(/Users/jadezhang/Documents/2016-2017_data_science/insight_program/project/insight_project)
+setwd("/Users/jadezhang/Documents/2016-2017_data_science/insight_program/project/insight_project")
+getwd
+getwd()
+?read.csv
+library(igraph)
+setwd("/Users/jadezhang/Documents/2016-2017_data_science/insight_program/project/insight_project")
+link_mat <- read.csv("../metrics/confusion_matrix_all.csv")
+setwd("/Users/jadezhang/Documents/2016-2017_data_science/insight_program/project/insight_project/graphs")
+link_mat <- read.csv("../metrics/confusion_matrix_all.csv")
+link_MAT
+link_mat
+rainbow(7)
+graph.adjacency?
+?graph.adjacency
+diag(link_mat)
+?diag
+diag(as.matrix(link_mat))
+as.matrix(link_mat)
+?read.csv
+link_mat <- read.csv("../metrics/confusion_matrix_all.csv")[,1:]
+link_mat <- read.csv("../metrics/confusion_matrix_all.csv")[:,1:]
+link_mat
+link_mat[1,:]
+link_mat[1,2]
+link_mat[1,2:]
+link_mat <- read.csv("../metrics/confusion_matrix_all.csv")[,1:dim(link_mat)[2]]
+link_mat
+link_mat <- read.csv("../metrics/confusion_matrix_all.csv")[,2:dim(link_mat)[2]]
+link_mat
+diag(link_mat)
+diag(as.matrix(link_mat))
+1-link_mat
+link_mat
+>graph.adjacency
+?graph.adjacency
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(len(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="directed",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 10*node_size^0.5#
+	set.seed(2)#
+#
+	par(bg="gray",mar=rep(0,4))#
+#
+	plot.igraph(net,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width^0.5/4,vertex.frame.color=0,vertex.color=colors,edge.color="orange",edge.width=E(net)$width^0.2*4)#
+#
+}
+supports <- diag(as.matrix(link_mat))
+plot_foodweb(link_mat,supports)
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="directed",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 10*node_size^0.5#
+	set.seed(2)#
+#
+	par(bg="gray",mar=rep(0,4))#
+#
+	plot.igraph(net,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width^0.5/4,vertex.frame.color=0,vertex.color=colors,edge.color="orange",edge.width=E(net)$width^0.2*4)#
+#
+}
+plot_foodweb(link_mat,supports)
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="directed",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 10*node_size#
+	set.seed(2)#
+#
+	par(bg="gray",mar=rep(0,4))#
+#
+	plot.igraph(net,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width^0.5/4,vertex.frame.color=0,vertex.color=colors,edge.color="orange",edge.width=E(net)$width*4)#
+#
+}
+plot_foodweb(link_mat,supports)
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="directed",weighted="width",diag=T)#
+#
+	V(net)$color = colors#
+	V(net)$size = 10*node_size#
+	set.seed(2)#
+#
+	par(bg="gray",mar=rep(0,4))#
+#
+	plot.igraph(net,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width^0.5/4,vertex.frame.color=0,vertex.color=colors,edge.color="orange",edge.width=E(net)$width*20)#
+#
+}
+plot_foodweb(link_mat,supports)
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="directed",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 20*node_size#
+	set.seed(2)#
+#
+	par(bg="gray",mar=rep(0,4))#
+#
+	plot.igraph(net,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width^0.5/4,vertex.frame.color=0,vertex.color=colors,edge.color="orange",edge.width=E(net)$width*20)#
+#
+}
+plot_foodweb(link_mat,supports)
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="directed",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 20*node_size#
+	set.seed(3)#
+#
+	par(bg="gray",mar=rep(0,4))#
+#
+	plot.igraph(net,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width^0.5/4,vertex.frame.color=0,vertex.color=colors,edge.color="orange",edge.width=E(net)$width*20)#
+#
+}
+plot_foodweb(link_mat,supports)
+link_mat[link_mat<0.05] <- 0
+link_mat
+plot_foodweb(link_mat,supports)
+index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="directed",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 20*node_size#
+	set.seed(4)#
+#
+	par(bg="gray",mar=rep(0,4))#
+#
+	plot.igraph(net,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width^0.5/4,vertex.frame.color=0,vertex.color=colors,edge.color="orange",edge.width=E(net)$width*20)#
+#
+}
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="directed",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 20*node_size#
+	set.seed(4)#
+#
+	par(bg="gray",mar=rep(0,4))#
+#
+	plot.igraph(net,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width^0.5/4,vertex.frame.color=0,vertex.color=colors,edge.color="orange",edge.width=E(net)$width*20)#
+#
+}
+plot_foodweb(link_mat,supports)
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="directed",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 20*node_size#
+	set.seed(4)#
+#
+	par(bg="gray",mar=rep(0,4))#
+#
+	plot.igraph(net,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width^0.5/4,vertex.frame.color=1,vertex.color=colors,edge.color="orange",edge.width=E(net)$width*20)#
+#
+}
+plot_foodweb(link_mat,supports)
+link_mat[link_mat<0.1] <- 0
+supports <- diag(as.matrix(link_mat))
+plot_foodweb(link_mat,supports)
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="directed",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 20*node_size#
+	set.seed(2)#
+#
+	par(bg="gray",mar=rep(0,4))#
+#
+	plot.igraph(net,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width^0.5/4,vertex.frame.color=0,vertex.color=colors,edge.color="orange",edge.width=E(net)$width*20)#
+#
+}
+plot_foodweb(link_mat,supports)
+link_mat <- read.csv("../metrics/confusion_matrix_all.csv")[,2:dim(link_mat)[2]]
+link_mat[link_mat<0.05] <- 0
+supports <- diag(as.matrix(link_mat))
+plot_foodweb(link_mat,supports)
+link_ma
+link_mat
+link_mat <- read.csv("../metrics/confusion_matrix_all.csv")[,2:dim(link_mat)[2]]
+link_mat
+link_mat <- read.csv("../metrics/confusion_matrix_all.csv")
+link_mat <- link_mat[,2:dim(link_mat)[2]]
+link_mat[link_mat<0.05] <- 0
+supports <- diag(as.matrix(link_mat))
+plot_foodweb(link_mat,supports)
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="directed",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 20*node_size#
+	set.seed(2)#
+#
+	par(bg="gray",mar=rep(0,4))#
+#
+	plot.igraph(net,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width,vertex.frame.color=0,vertex.color=colors,edge.color="orange",edge.width=E(net)$width*10)#
+#
+}
+plot_foodweb(link_mat,supports)
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="directed",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 20*node_size#
+	set.seed(2)#
+#
+	par(bg="gray",mar=rep(0,4))#
+#
+	plot.igraph(net,vertex.label.col='black',vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width,vertex.frame.color=0,vertex.color=colors,edge.color="orange",edge.width=E(net)$width*10)#
+#
+}
+plot_foodweb(link_mat,supports)
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="directed",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 20*node_size#
+	set.seed(2)#
+#
+	par(bg="gray",mar=rep(0,4))#
+#
+	plot.igraph(net,vertex.label.cex=1,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width,vertex.frame.color=0,vertex.color=colors,edge.color="orange",edge.width=E(net)$width*10)#
+#
+}
+plot_foodweb(link_mat,supports)
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="directed",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 20*node_size#
+	set.seed(2)#
+#
+	par(bg="gray",mar=rep(0,4))#
+#
+	plot.igraph(net,vertex.label.cex=2,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width,vertex.frame.color=0,vertex.color=colors,edge.color="orange",edge.width=E(net)$width*10)#
+#
+}
+plot_foodweb(link_mat,supports)
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="directed",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 20*node_size#
+	set.seed(2)#
+#
+	par(bg="gray",mar=rep(0,4))#
+#
+	plot.igraph(net,vertex.label.cex=0.5,vertex.label.pch=2,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width,vertex.frame.color=0,vertex.color=colors,edge.color="orange",edge.width=E(net)$width*10)#
+#
+}
+plot_foodweb(link_mat,supports)
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="directed",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 20*node_size#
+	set.seed(2)#
+#
+	par(bg="gray",mar=rep(0,4))#
+#
+	plot.igraph(net,vertex.label.cex=0.5,vertex.pch = 2, vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width,vertex.frame.color=0,vertex.color=colors,edge.color="orange",edge.width=E(net)$width*10)#
+#
+}
+plot_foodweb(link_mat,supports)
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="directed",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 20*node_size#
+	set.seed(2)#
+#
+	par(bg="gray",mar=rep(0,4))#
+#
+	plot.igraph(net,vertex.label.cex=0.5,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width,vertex.frame.color=0,vertex.color=colors,edge.color="red",edge.width=E(net)$width*10)#
+#
+}
+plot_foodweb(link_mat,supports)
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="directed",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 20*node_size#
+	set.seed(6)#
+#
+	par(bg="gray",mar=rep(0,4))#
+#
+	plot.igraph(net,vertex.label.cex=0.5,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width,vertex.frame.color=0,vertex.color=colors,edge.color="red",edge.width=E(net)$width*10)#
+#
+}
+plot_foodweb(link_mat,supports)
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="directed",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 20*node_size#
+	set.seed(6)#
+#
+	par(bg="gray",mar=rep(0,4))#
+#
+	plot.igraph(net,vertex.label.cex=0.5,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width,vertex.frame.color=0,vertex.color=colors,edge.color="green",edge.width=E(net)$width*10)#
+#
+}
+plot_foodweb(link_mat,supports)
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="directed",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 20*node_size#
+	set.seed(6)#
+#
+	par(bg="white",mar=rep(0,4))#
+#
+	plot.igraph(net,vertex.label.cex=0.5,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width,vertex.frame.color=0,vertex.color=colors,edge.color="green",edge.width=E(net)$width*10)#
+#
+}
+plot_foodweb(link_mat,supports)
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="directed",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 20*node_size#
+	set.seed(6)#
+#
+	par(bg="white",mar=rep(0,4))#
+#
+	plot.igraph(net,vertex.label.cex=0.5,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width,vertex.frame.color=0,vertex.color=colors,edge.color="orange",edge.width=E(net)$width*10)#
+#
+}
+plot_foodweb(link_mat,supports)
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="undirected",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 20*node_size#
+	set.seed(6)#
+#
+	par(bg="white",mar=rep(0,4))#
+#
+	plot.igraph(net,vertex.label.cex=0.5,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width,vertex.frame.color=0,vertex.color=colors,edge.color="orange",edge.width=E(net)$width*10)#
+#
+}
+plot_foodweb(link_mat,supports)
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="undirected",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 20*node_size#
+	set.seed(6)#
+#
+	par(bg="white",mar=rep(0,4))#
+#
+	plot.igraph(net,vertex.label.cex=0.5,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width,vertex.frame.color=0,vertex.color=colors,edge.color="orange",edge.width=E(net)$width*10)#
+#
+}
+plot_foodweb(link_mat,supports)
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="undirected",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 20*node_size#
+	set.seed(7)#
+#
+	par(bg="white",mar=rep(0,4))#
+#
+	plot.igraph(net,vertex.label.cex=0.5,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width,vertex.frame.color=0,vertex.color=colors,edge.color="orange",edge.width=E(net)$width*10)#
+#
+}
+plot_foodweb(link_mat,supports)
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="undirected",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 20*node_size#
+	set.seed(8)#
+#
+	par(bg="white",mar=rep(0,4))#
+#
+	plot.igraph(net,vertex.label.cex=0.5,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width,vertex.frame.color=0,vertex.color=colors,edge.color="orange",edge.width=E(net)$width*10)#
+#
+}
+plot_foodweb(link_mat,supports)
+plot_foodweb(link_mat,supports)
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="undirected",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 20*node_size#
+	V(net)$label.cex = 2#
+	set.seed(8)#
+#
+	par(bg="white",mar=rep(0,4))#
+#
+	plot.igraph(net,vertex.label.cex=0.5,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width,vertex.frame.color=0,vertex.color=colors,edge.color="orange",edge.width=E(net)$width*10)#
+#
+}
+plot_foodweb(link_mat,supports)
+plot_foodweb(link_mat,supports)
+plot_foodweb(link_mat,supports)
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="undirected",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 20*node_size#
+	V(net)$label.cex = 5#
+	set.seed(8)#
+#
+	par(bg="white",mar=rep(0,4))#
+#
+	plot.igraph(net,vertex.label.cex=0.5,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width,vertex.frame.color=0,vertex.color=colors,edge.color="orange",edge.width=E(net)$width*10)#
+#
+}
+plot_foodweb(link_mat,supports)
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="undirected",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 20*node_size#
+	V(net)$label.cex = 5#
+	set.seed(8)#
+#
+	par(bg="white",mar=rep(0,4))#
+#
+	plot.igraph(net,label.cex = 5, vertex.label.cex=0.5,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width,vertex.frame.color=0,vertex.color=colors,edge.color="orange",edge.width=E(net)$width*10)#
+#
+}
+plot_foodweb(link_mat,supports)
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="undirected",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 20*node_size#
+	V(net)$label.cex = rep(5, length(sizes))#
+	set.seed(8)#
+#
+	par(bg="white",mar=rep(0,4))#
+#
+	plot.igraph(net,label.cex = 5, vertex.label.cex=0.5,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width,vertex.frame.color=0,vertex.color=colors,edge.color="orange",edge.width=E(net)$width*10)#
+#
+}
+plot_foodweb(link_mat,supports)
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="undirected",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 20*node_size#
+	V(net)$label.cex = rep(5, length(sizes))#
+	set.seed(8)#
+#
+	par(bg="white",mar=rep(0,4))#
+#
+	plot.igraph(net,vertex.label.cex=3,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width,vertex.frame.color=0,vertex.color=colors,edge.color="orange",edge.width=E(net)$width*10)#
+#
+}
+plot_foodweb(link_mat,supports)
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="undirected",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 20*node_size#
+	V(net)$label.cex = rep(5, length(sizes))#
+	set.seed(8)#
+#
+	par(bg="white",mar=rep(0,4))#
+#
+	plot.igraph(net,vertex.label.cex=2,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width,vertex.frame.color=0,vertex.color=colors,edge.color="orange",edge.width=E(net)$width*10)#
+#
+}
+plot_foodweb(link_mat,supports)
+plot_foodweb <- function(link_mat,sizes){#
+	index <- 1:dim(link_mat)[1]#
+	colors = rainbow(length(sizes))#
+	node_size <- sizes#
+	AJ = as.matrix(link_mat)#
+	net=graph.adjacency(AJ,mode="undirected",weighted="width",diag=F)#
+#
+	V(net)$color = colors#
+	V(net)$size = 20*node_size#
+	V(net)$label.cex = rep(5, length(sizes))#
+	set.seed(8)#
+#
+	par(bg="white",mar=rep(0,4))#
+#
+	plot.igraph(net,vertex.label.cex=1.5,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width,vertex.frame.color=0,vertex.color=colors,edge.color="orange",edge.width=E(net)$width*10)#
+#
+}
+plot_foodweb(link_mat,supports)
+require(datasets)
+states <- data.frame(state.name, state.x77)
+states
+library(googleVis)
+install.packages("googleVis")
+library(googleVis)
+GeoStates <- gvisGeoChart(states, "state.name", "Illiteracy",
+GeoStates <- gvisGeoChart(states, "state.name", "Illiteracy",#
+                          options=list(region="US", #
+                                       displayMode="regions", #
+                                       resolution="provinces",#
+                                       width=600, height=400))
+plot(GeoStates)
+?gvisGeoChart
+getwd()
+read.csv("../metrics/state_distribution.csv")
+GeoStates <- gvisGeoChart(states, "state.name", "Illiteracy",#
+                          options=list(region="US", #
+                                       displayMode="regions", #
+                                       resolution="provinces",#
+                                       width=600, height=400))
+plot(GeoStates)
+GeoStates <- gvisGeoChart(states, "X", "state",#
+                          options=list(region="US", #
+                                       displayMode="regions", #
+                                       resolution="provinces",#
+                                       width=600, height=400))
+plot(GeoStates)
+states <- read.csv("../metrics/state_distribution.csv")
+options=list(region="US",
+plot(GeoStates)
+states <- read.csv("../metrics/state_distribution.csv")
+states
+displayMode="regions",
+GeoStates <- gvisGeoChart(states, "X", "state",#
+                          options=list(region="US", #
+                                       displayMode="regions", #
+                                       resolution="provinces",#
+                                       width=600, height=400))
+plot(GeoStates)
+titles <- read.csv("../metrics/title_distribution.csv")
+titles
+titles <- titles[-8,]
+titles
+library(ggplot2)
+p<-ggplot(titles, aes(x=X, y=jobtitle, fill=jobtitle)) +
+geom_bar(stat="identity")+theme_minimal()
+p
+p<-ggplot(titles, aes(x=X, y=jobtitle, fill=X)) +
+geom_bar(stat="identity")+theme_minimal()
+p
+titles <- read.csv("../metrics/title_distribution.csv")
+titles <- titles[-8,]
+p<-ggplot(titles, aes(x=X, y=jobtitle, fill=X)) +
+geom_bar(stat="identity")+theme_minimal()
+p
+titles <- read.csv("../metrics/title_distribution.csv")
+titles <- titles[-8,]
+p<-ggplot(titles, aes(x=X, y=jobtitle, fill=X)) +
+geom_bar(stat="identity")+theme_minimal()
+p
+colnames(titles) = c("job title", "count")
+colnames(titles) = c("title", "count")
+colnames(titles) = c("title", "count")
+p<-ggplot(titles, aes(x=title, y=count, fill=X)) +
+geom_bar(stat="identity")+theme_minimal()
+p
+p<-ggplot(titles, aes(x=title, y=count, fill=title)) +
+geom_bar(stat="identity")+theme_minimal()
+p
+p<-ggplot(titles, aes(x=title, y=count, fill=title)) +#
+  geom_bar(stat="identity")+theme_minimal() +#
+  theme(axis.title.x=element_blank(),#
+        axis.text.x=element_blank(),#
+        axis.ticks.x=element_blank())
+p
