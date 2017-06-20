@@ -13,10 +13,14 @@ titles <- read.csv("../metrics/title_distribution.csv")
 titles <- titles[-8,]
 colnames(titles) = c("title", "count")
 
-p<-ggplot(titles, aes(x=title, y=count, fill=title)) +
+p<-ggplot(titles, aes(x=reorder(title, count), y=count, fill='')) +
   geom_bar(stat="identity")+theme_minimal() +
-  theme(axis.title.x=element_blank(),
-        axis.text.x=element_blank(),
-        axis.ticks.x=element_blank())
-
+  theme(axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),
+        axis.title.y=element_blank(),
+        legend.position='none') +
+  coord_flip()
+  
 p
+
+p + theme(legend.position='none')

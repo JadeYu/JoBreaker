@@ -1,4 +1,3 @@
-ggpairs(iris, columns=1:4)
 m1 = lm(Sepal.Length~Sepal.Width, data = iris)
 ggplot(m1, aes(x=.fitted, y = .resid)) +
 geom_line()
@@ -581,7 +580,6 @@ plot_foodweb <- function(link_mat,sizes){#
 #
 }
 plot_foodweb(link_mat,supports)
-plot_foodweb(link_mat,supports)
 plot_foodweb <- function(link_mat,sizes){#
 	index <- 1:dim(link_mat)[1]#
 	colors = rainbow(length(sizes))#
@@ -599,8 +597,6 @@ plot_foodweb <- function(link_mat,sizes){#
 	plot.igraph(net,vertex.label.cex=0.5,vertex.label=colnames(link_mat),edge.arrow.size = E(net)$width,vertex.frame.color=0,vertex.color=colors,edge.color="orange",edge.width=E(net)$width*10)#
 #
 }
-plot_foodweb(link_mat,supports)
-plot_foodweb(link_mat,supports)
 plot_foodweb(link_mat,supports)
 plot_foodweb <- function(link_mat,sizes){#
 	index <- 1:dim(link_mat)[1]#
@@ -773,7 +769,6 @@ geom_bar(stat="identity")+theme_minimal()
 p
 colnames(titles) = c("job title", "count")
 colnames(titles) = c("title", "count")
-colnames(titles) = c("title", "count")
 p<-ggplot(titles, aes(x=title, y=count, fill=X)) +
 geom_bar(stat="identity")+theme_minimal()
 p
@@ -785,4 +780,16 @@ p<-ggplot(titles, aes(x=title, y=count, fill=title)) +#
   theme(axis.title.x=element_blank(),#
         axis.text.x=element_blank(),#
         axis.ticks.x=element_blank())
+p
+library(ggplot2)
+titles <- read.csv("../metrics/title_distribution.csv")
+titles <- titles[-8,]
+colnames(titles) = c("title", "count")
+p<-ggplot(titles, aes(x=reorder(title, count), y=count, fill=title)) +#
+  geom_bar(stat="identity")+theme_minimal() +#
+  theme(axis.text.x=element_blank(),#
+        axis.ticks.x=element_blank(),#
+        axis.title.y=element_blank(),#
+        legend.position='none') +#
+  coord_flip()#
 p
